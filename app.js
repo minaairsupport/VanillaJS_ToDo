@@ -6,6 +6,7 @@ const todoList = document.querySelector('.todo-list');
 //Event Listeners
 
 todoButton.addEventListener('click', addToDo);
+todoList.addEventListener('click', deleteCheck);
 
 // Functions
 
@@ -48,4 +49,16 @@ function addToDo(event) {
   todoList.appendChild(todoDiv);
 
   todoInput.value = '';
+}
+
+function deleteCheck(event) {
+  const item = event.target;
+  if (item.classList.contains('fa-trash')) {
+    const todoItem = item.parentElement.parentElement;
+    todoItem.remove();
+  }
+  if (item.classList.contains('fa-check')) {
+    const todoItem = item.parentElement.parentElement;
+    todoItem.classList.toggle('completed');
+  }
 }
