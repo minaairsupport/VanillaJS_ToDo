@@ -53,12 +53,16 @@ function addToDo(event) {
 
 function deleteCheck(event) {
   const item = event.target;
-  if (item.classList.contains('fa-trash')) {
-    const todoItem = item.parentElement.parentElement;
-    todoItem.remove();
+  if (item.classList.contains('trash-btn')) {
+    const todoItem = item.parentElement;
+    console.log('todoItem', todoItem);
+    todoItem.classList.add('fall');
+    todoItem.addEventListener('transitionend', () => {
+      todoItem.remove();
+    });
   }
   if (item.classList.contains('fa-check')) {
-    const todoItem = item.parentElement.parentElement;
+    const todoItem = item.parentElement;
     todoItem.classList.toggle('completed');
   }
 }
