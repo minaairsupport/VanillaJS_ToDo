@@ -61,7 +61,7 @@ function deleteCheck(event) {
       todoItem.remove();
     });
   }
-  if (item.classList.contains('fa-check')) {
+  if (item.classList.contains('check-btn')) {
     const todoItem = item.parentElement;
     todoItem.classList.toggle('completed');
   }
